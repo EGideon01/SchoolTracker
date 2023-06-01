@@ -1,40 +1,31 @@
 import './App.css';
+import React, { useState } from 'react';
 
+const Assignment = () => {
+  const [input, setInput] = useState("")
+  const [submittedInput, setSubmittedInput] = useState([])
 
-const App = () => {
-  return (
-    <main id="App">
+  const handleChange = (e) => {
+    setInput(e.target.value) // Updates state every key stroke
+  }
+  
+  const handleClick = () => {
+    setSubmittedInput(input) // updates our list of submitted input with the typed word from the state "input"
+  }
 
-      <div>
-      <form>
-        <label>
-          Assignment:
-          <input type="text" name="assignment" />
-        </label>
-          <input type="submit" value="Submit" id='assignment' />
-      </form>
+  const inputList = submittedInput.map((input) => {
+    <p key={55}>{input}</p>
+  }) // We have to insert a "key" for each list item, otherwise react spits out errors
+
+  return(
+    <div id="Assignment">
+      <input type="text" onchange={handleChange}/><input/>
+      <button type="submit" onclick={handleClick}>Submit</button>
+      <div id="InputArea">
+        {inputList}
       </div>
-
-      <div>
-      <form>
-        <label>
-          Due Date:
-          <input type="text" name="dueDate" />
-        </label>
-          <input type="submit" value="Submit" id='date'/>
-      </form>
-      </div>
-
-      <div>
-        <table>
-          <tr>
-            <th id='assignment'></th>
-          </tr>
-        </table>
-      </div>
-
-    </main>
+    </div>
   )
 }
 
-export default App
+export default Assignment
