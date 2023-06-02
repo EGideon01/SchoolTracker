@@ -14,13 +14,13 @@ const Assignment = () => {
     setSubmittedInput(submittedInput.concat([input])) // updates our list of submitted input with the typed word from the state "input"
   }
 
-  const inputList = submittedInput.map((input) => {
+  const inputList = submittedInput.map(input => 
     <p key={uuidv4()}>{input}</p>
-  }) // We have to insert a "key" for each list item, otherwise react spits out errors
+  ) // We have to insert a "key" for each list item, otherwise react spits out errors
 
   return(
     <div id="Assignment">
-      <input type="text" onChange={handleChange}/><input/>
+      <input type="text" onChange={handleChange}/> 
       <button type="submit" onClick={handleClick}>Submit</button>
       <div id="InputArea">
         {inputList}
